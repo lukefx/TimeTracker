@@ -5,7 +5,7 @@
         <title><%= h(yield(:title) || "Untitled") %></title>
         <%= stylesheet_link_tag "base", "style.css" %>
         <%= javascript_include_tag :all %>
-        <% yield(:head) %>
+        <%= yield(:head) %>
     </head>
     <body>
         <div id="container">
@@ -21,17 +21,14 @@
                 </div>
                 <div id="main-navigation">
                     <ul>
-                        <li class="first"><a href="#block-text">Main Page</a></li>
-                        <li class="active"><a href="#block-text">Active</a></li>
-                        <li><a href="#block-login">Login</a></li>
-                        <li><a href="#block-signup">Signup</a></li>
+                    	<%= yield(:menu) -%>
                     </ul>
                     <div class="clear"></div>
                 </div>
             </div>
             <div id="wrapper">
                 <div id="main">
-                    <%= yield %>
+					<%= yield %>
                     <div id="footer">
                         <div class="block">
                             <p>
@@ -41,28 +38,7 @@
                     </div>
                 </div>
                 <div id="sidebar">
-                    <div class="block">
-                        <h3>Simple Block</h3>
-                        <div class="content">
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="block notice">
-                        <h4>Notice Title</h4>
-                        <p>
-                            Morbi posuere urna vitae nunc. Curabitur ultrices, lorem ac aliquam blandit, lectus eros hendrerit eros, at eleifend libero ipsum hendrerit urna. Suspendisse viverra. Morbi ut magna. Praesent id ipsum. Sed feugiat ipsum ut felis. Fusce vitae nibh sed risus commodo pulvinar. Duis ut dolor. Cras ac erat pulvinar tortor porta sodales. Aenean tempor venenatis dolor.
-                        </p>
-                    </div>
-                    <div class="block">
-                        <div class="sidebar-block">
-                            <h4>Sidebar Inner block Title</h4>
-                            <p>
-                                Morbi posuere urna vitae nunc. Curabitur ultrices, lorem ac <a href="#">aliquam blandit</a>, lectus eros hendrerit eros, at eleifend libero ipsum hendrerit urna. Suspendisse viverra. Morbi ut magna. Praesent id ipsum. Sed feugiat ipsum ut felis. Fusce vitae nibh sed risus commodo pulvinar. Duis ut dolor. Cras ac erat pulvinar tortor porta sodales. Aenean tempor venenatis dolor.
-                            </p>
-                        </div>
-                    </div>
+				<%= yield(:sidebar) %>
                 </div>
                 <div class="clear"></div>
             </div>

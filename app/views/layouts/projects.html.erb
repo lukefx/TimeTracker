@@ -1,0 +1,35 @@
+<% content_for :menu do %>
+	<li class="first"><a href="#">Dashboard</a></li>
+	<li class="active"><%= link_to 'Projects', projects_path %></li>
+<% end %>
+
+<% content_for :submenu do %>
+	<li class="first"><a href="#block-text">Text</a></li>
+	<li class="active"><a href="#block-tables">Tables</a></li>
+	<li><a href="#block-forms">Forms</a></li>
+	<li><a href="#block-messages">Messages</a></li>
+	<li><a href="#block-forms-2">2 Columns Forms</a></li>
+	<li><a href="#block-lists">Lists</a></li>
+<% end %>
+
+<% content_for :sidebar do %>
+	<div class="block">
+	    <h3>Gestione progetti</h3>
+	    <div class="content">
+	        <p>I progetti possono essere modificati solo da un amministratore del sistema.</p>
+	    </div>
+	</div>
+	<div class="block notice">
+	    <h4>Notice Title</h4>
+	    <p>Morbi posuere urna vitae nunc. Curabitur ultrices, lorem ac aliquam blandit, lectus eros hendrerit eros, at eleifend libero ipsum hendrerit urna. Suspendisse viverra. Morbi ut magna. Praesent id ipsum. Sed feugiat ipsum ut felis. Fusce vitae nibh sed risus commodo pulvinar. Duis ut dolor. Cras ac erat pulvinar tortor porta sodales. Aenean tempor venenatis dolor.</p>
+	</div>
+	<div class="block">
+	    <div class="sidebar-block">
+	        <h4>Sidebar Inner block Title</h4>
+	        <p>Morbi posuere urna vitae nunc. Curabitur ultrices, lorem ac <a href="#">aliquam blandit</a>, lectus eros hendrerit eros, at eleifend libero ipsum hendrerit urna. Suspendisse viverra. Morbi ut magna. Praesent id ipsum. Sed feugiat ipsum ut felis. Fusce vitae nibh sed risus commodo pulvinar. Duis ut dolor. Cras ac erat pulvinar tortor porta sodales. Aenean tempor venenatis dolor.</p>
+	    </div>
+	</div>
+<% end %>
+
+<%= render :file => 'layouts/application' %>
+<%# render :text => @content_for_layout, :layout => "layouts/application" %>

@@ -3,6 +3,14 @@
 # to do so you may need to add this line to your ApplicationController
 #   helper :layout
 module LayoutHelper
+  
+  def default_content_for(name, &block)
+    name = name.kind_of?(Symbol) ? ":#{name}" : name
+    out = eval("yield #{name}", block.binding)
+    concat(out || capture(&block), block.binding)
+  end
+
+  
   def title(page_title, show_title = true)
     @content_for_title = page_title.to_s
     @show_title = show_title
@@ -20,4 +28,5 @@ module LayoutHelper
     args = args.map { |arg| arg == :defaults ? arg : arg.to_s }
     content_for(:head) { javascript_include_tag(*args) }
   end
+
 end

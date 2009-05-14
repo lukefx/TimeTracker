@@ -3,35 +3,45 @@
 <div class="block" id="block-tables">
 	<div class="secondary-navigation">
     	<ul>
-			<li class="first"><a href="#block-text">Text</a></li>
-			<li class="active"><a href="#block-tables">Tables</a></li>
-			<li><a href="#block-forms">Forms</a></li>
-			<li><a href="#block-messages">Messages</a></li>
-			<li><a href="#block-forms-2">2 Columns Forms</a></li>
-			<li><a href="#block-lists">Lists</a></li>
+			<%= render :partial => 'submenu' %>
+			<%# yield :submenu %>
     	</ul>
     	<div class="clear"></div>
   	</div>          
 	<div class="content">          
 		<h2 class="title">Tables</h2>
     	<div class="inner">
-    		<table>
-				<tr>
-				    <th>Name</th>
-				    <th>Description</th>
-			  	</tr>
-				<% for project in @projects %>
-			    <tr>
-					<td><%=h project.name %></td>
-					<td><%=h project.description %></td>
-					<td><%= link_to "Show", project %></td>
-					<td><%= link_to "Edit", edit_project_path(project) %></td>
-					<td><%= link_to "Destroy", project, :confirm => 'Are you sure?', :method => :delete %></td>
-			    </tr>
-			  	<% end %>
-			</table>
+
 			<p><%= link_to "New Project", new_project_path %></p>
-          	<div class="clear"></div>
+
+	      	<form action="#" class="form">
+	            <table class="table">
+	              <tr>             
+	                <th class="first"><input type="checkbox" class="checkbox toggle" /></th>
+	                <th>Nome</th>
+	                <th>Descrizione</th>
+	                <th class="last">&nbsp;</th>
+	              </tr>
+	              <% for project in @projects %>
+					  <tr class="<%= cycle('odd', 'even') -%>">
+	                    <td><input type="checkbox" class="checkbox" name="id" value="<%= project.id %>" /></td>
+						<td><%=h project.name %></td>
+						<td><%=h project.description %></td>
+						<td class="last"><%= link_to "Show", project %> | <%= link_to "Edit", edit_project_path(project) %> | <%= link_to "Destroy", project, :confirm => 'Are you sure?', :method => :delete %></td>
+	                  </tr>
+				  <% end %>
+	            </table>
+	            <div class="actions-bar">
+	              <div class="actions">
+	                <input type="submit" class="button" value="Delete" />
+	              </div>
+	              <div class="pagination">
+	                <span class="disabled prev_page">« Previous</span><span class="current">1</span><a rel="next" href="#">2</a><a href="#">3</a><a href="#">4</a><a href="#">5</a><a href="#">6</a><a href="#">7</a><a href="#">8</a><a href="#">9</a><a href="#">10</a><a href="#">11</a><a rel="next" class="next_page" href="#">Next »</a>
+	              </div>                  
+	              <div class="clear"></div>
+	            </div>
+	        </form>
+			
     	</div>
 	</div>
 </div>
