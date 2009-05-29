@@ -1,0 +1,47 @@
+<% form_for(@user_session) do |f| %>
+<div id="box">
+
+	<h1>Time Tracker</h1>
+  <div class="block" id="block-login">
+    
+		<h2>Login Box</h2>
+    <div class="content login">
+
+			<% if !f.error_messages.empty? %>
+			<div class="flash">
+        <div class="message notice">
+					<%= f.error_messages %>
+				</div>
+      </div>
+			<% end %>
+
+			<form action="#" class="form login">
+        <div class="group">
+          <div class="left">
+            <label class="label right">Login</label>
+          </div>
+          <div class="right">
+            <%= f.text_field :username %>
+          </div>              
+          <div class="clear"></div>
+        </div>
+        <div class="group">
+          <div class="left">
+            <label class="label right">Password</label>
+          </div>
+          <div class="right">
+            <%= f.password_field :password %><br />
+          </div>              
+          <div class="clear"></div>
+        </div>
+        <div class="group navform">
+          <div class="right">
+            <%= f.submit 'Create' %>
+          </div>
+          <div class="clear"></div>
+        </div>            
+      </form>
+    </div>
+  </div>
+</div>
+<% end %>

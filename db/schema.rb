@@ -9,13 +9,47 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090513121138) do
+ActiveRecord::Schema.define(:version => 20090529141623) do
 
-  create_table "projects", :force => true do |t|
+  create_table "activities", :force => true do |t|
     t.string   "name",                       :null => false
     t.string   "description", :limit => nil, :null => false
     t.datetime "created_at",                 :null => false
     t.datetime "updated_at",                 :null => false
+  end
+
+  create_table "hours", :force => true do |t|
+    t.datetime "start_time",  :null => false
+    t.datetime "stop_time",   :null => false
+    t.date     "day",         :null => false
+    t.decimal  "duration",    :null => false
+    t.integer  "activity_id", :null => false
+    t.integer  "user_id",     :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "taggings", :force => true do |t|
+    t.integer  "tag_id",        :null => false
+    t.integer  "taggable_id",   :null => false
+    t.string   "taggable_type", :null => false
+    t.datetime "created_at",    :null => false
+  end
+
+  add_index "taggings", ["tag_id"], :name => "index_taggings_on_tag_id"
+  add_index "taggings", ["taggable_id", "taggable_type"], :name => "index_taggings_on_taggable_id_and_taggable_type"
+
+  create_table "tags", :force => true do |t|
+    t.string "name", :null => false
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "username",                         :null => false
+    t.string   "email",                            :null => false
+    t.string   "persistence_token",                :null => false
+    t.integer  "login_count",       :default => 0, :null => false
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
   end
 
 end

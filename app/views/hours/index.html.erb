@@ -1,0 +1,21 @@
+<% title "My Time" %>
+
+<div class="block" id="block-tables">
+	<div class="secondary-navigation">
+    	<ul>
+			<%= render :partial => 'submenu' %>
+			<%# yield :submenu %>
+    	</ul>
+    	<div class="clear"></div>
+  	</div>
+	<div class="content">
+		<h2 class="title">Today is <%= Time.now.strftime("%B #{Time.now.day.ordinalize}") %></h2>
+    	<div class="inner">
+
+				<% (Time.now.beginning_of_month..Time.now.end_of_month).each do |d| %>
+					<%= d %>
+				<% end %>
+
+    	</div>
+	</div>
+</div>
