@@ -1,3 +1,8 @@
+<% content_for(:head) do %>
+	<%= stylesheet_link_tag "scal" %>
+	<%= javascript_include_tag "scal" %>
+<% end %>
+
 <% content_for :menu do %>
 	<li class="first active"><%= link_to 'My Time', hours_path %></li>
 	<li><%= link_to 'Activities', activities_path %></li>

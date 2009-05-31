@@ -1,0 +1,188 @@
+.scal table {border-collapse: collapse;}
+
+.scal table.cal_table {
+	width: 437px;
+	font-size:24pt;
+	border: 1px dashed #808080;
+}
+
+.scal table.cal_table td {
+	text-align: center;
+}
+
+.scal table.cal_table thead tr.calheader td {
+	cursor: pointer;
+}
+
+.scal table.cal_table tbody.cal_wrapper tr.weekboxname td {
+	background: #000;
+	color: #fff;
+	width: 64px;
+	font-weight: bold;	
+	font-size:16pt;
+	border-top: 1px solid #000;
+}
+
+.scal table.cal_table tbody.cal_wrapper tr.weekbox td.daybox {
+	cursor: pointer;
+	border: 1px solid #000;
+}
+
+.scal table.cal_table tbody.cal_wrapper tr.weekbox td.dayboxsunday {
+	background: #D3D3D3;
+}
+
+.scal table.cal_table tbody.cal_wrapper tr.weekbox td.dayboxsaturday {
+	background: #D3D3D3;
+}
+
+.scal table.cal_table tbody.cal_wrapper tr.weekbox td.dayoutmonth {
+	color: #808080;
+}
+
+.scal table.cal_table tbody.cal_wrapper tr.weekbox td.dayselected {
+	background: #E00008;
+	color: #fff;
+}
+
+.scal table.cal_table tbody.cal_wrapper tr.weekbox td.today {
+	background: #FF9999;
+}
+
+/* 
+tinyscal - a mini version of the calendar type.  useful in tight spaces. 
+ usage: define class of base element as "scal tinyscal" as tinyscal is 
+        dependent on scal.
+*/	
+.tinyscal table.cal_table {
+	font-size: 8pt;
+	width: 154px;
+}
+
+.tinyscal table.cal_table tbody.cal_wrapper tr.weekboxname td {
+	width: 20px;
+}
+
+.tinyscal table.cal_table tbody.cal_wrapper tr.weekboxname td {
+	font-size: 8pt;
+}
+
+/* 
+slick - an image based version of tinyscal. 
+ usage: define class of base element as "scal tinyscal slick" as slick is 
+        dependent on scal and tinyscal.
+*/	
+.scal.slick 
+{ 
+    font-family:Arial, sans-serif;        
+}
+
+.scal.slick .calheader 
+{
+    background:#ccc url(images/blackback.jpg) repeat-x center left; 
+}
+
+.scal.slick table.cal_table 
+{
+    border: 1px solid #000;    
+}
+
+.scal.slick table.cal_table thead tr.calheader td.caltitle 
+{
+    color: #fff;
+}
+
+.scal.slick table.cal_table tbody.cal_wrapper tr.weekbox td
+{
+    background:#ccc url(images/blueline.jpg) repeat-x center left; 
+}
+
+.scal.slick table.cal_table tbody.cal_wrapper tr.weekbox td.dayboxsunday {
+	background: #D3D3D3;
+}
+
+.scal.slick table.cal_table tbody.cal_wrapper tr.weekbox td.dayboxsaturday {
+	background: #D3D3D3;
+}
+
+.scal.slick table.cal_table tbody.cal_wrapper tr.weekbox td.dayselected
+{
+    background:#ccc url(images/blackback.jpg) repeat-x center left; 
+}
+
+.scal.slick table.cal_table tbody.cal_wrapper tr.weekbox td.today
+{
+    background:#ccc url(images/blueback.jpg) repeat-x center left; 
+    color: #000;
+    font-weight: bold;
+}
+
+.scal.slick table.cal_table tbody.cal_wrapper tr.weekboxname td 
+{
+    background:#ccc url(images/blackback.jpg) repeat-x center left; 
+}
+
+/*
+iscal - based on apple's ical default design
+*/
+
+.iscal table {border-collapse: collapse;}
+
+.iscal table.cal_table {
+	width: 540px;
+	font-size:10pt;
+	border: 3px solid #E00008;
+	padding: 3px;
+}
+
+.iscal table.cal_table td {
+	text-align: center;
+}
+
+.iscal table.cal_table thead tr.calheader td {
+	cursor: pointer;
+	background: #E00008;
+	color: #fff;
+	font-size:20pt;
+	height: 25px;
+}
+
+.iscal table.cal_table tbody.cal_wrapper tr.weekbox td.daybox {
+	border:	border-left:1px solid #cccccc;
+	border-bottom: 1px solid #cccccc;
+	width:70px;
+	height:70px;
+	vertical-align: top;
+}
+
+.iscal table.cal_table tbody.cal_wrapper tr.weekboxname td.dayboxname {
+	width: 64px;
+	font-weight: bold;	
+	border-top: 1px solid #000;
+	height: 25px;
+}
+
+.iscal table.cal_table tbody.cal_wrapper tr.weekbox td.daybox div.dayboxdate {
+	margin: 0px;
+	padding: 0px;
+	float: right;
+	padding-right: 5px;
+}
+.iscal table.cal_table tbody.cal_wrapper tr.weekbox td.daybox div.dayboxvalue p {
+    margin: 0;
+    padding: 0;
+    padding-left: 5px;
+    background: url(images/bullet_red.gif) -5px 0px no-repeat;
+}
+.iscal table.cal_table tbody.cal_wrapper tr.weekbox td.dayoutmonth {
+	color: #808080;
+}
+
+.iscal table.cal_table tbody.cal_wrapper tr.weekbox td.dayselected {
+	background: #E00008;
+	color: #fff;
+}
+
+.iscal table.cal_table tbody.cal_wrapper tr.weekbox td.today {
+	background: #FF9999;
+}

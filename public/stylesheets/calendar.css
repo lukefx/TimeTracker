@@ -1,0 +1,13 @@
+.day {
+	width: 30px;
+	float: left;
+	margin: 2px;
+	border: solid 1px black;
+	padding: 5px;
+}
+
+#activities {
+	
+	margin: 0px 0px 0px 25px;
+	
+}

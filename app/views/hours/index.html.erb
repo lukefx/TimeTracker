@@ -11,11 +11,34 @@
 	<div class="content">
 		<h2 class="title">Today is <%= Time.now.strftime("%B #{Time.now.day.ordinalize}") %></h2>
     	<div class="inner">
+			
+			<p id="scalupdate"></p>			
+			<!-- <div id="samplecal" class="googleblue"></div> -->
+			
+			<% (Date.today.beginning_of_month..Date.today.end_of_month).each do |d| %>
+				<div class="day">
+					<%= link_to_remote "#{d.day}", :url => { :action => "show", :date => d } %>
+				</div>
+			<% end %>
 
-				<% (Time.now.beginning_of_month..Time.now.end_of_month).each do |d| %>
-					<%= d %>
-				<% end %>
-
+			<div class="clear"></div>
+			<h2>Activities for this day</h2>
+			
+			<div id="activities">
+			</div>
+			
+			<div class="clear"></div>			
+			
+			<script>
+			
+				options = Object.extend({
+					titleformat: 'mmmm yyyy',
+	        		updateformat: 'dd.mm.yyyy'
+				});
+				// var samplecal = new scal('samplecal', 'scalupdate', options);
+			
+			</script>
+			
     	</div>
 	</div>
 </div>

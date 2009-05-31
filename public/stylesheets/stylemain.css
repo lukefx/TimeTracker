@@ -1,0 +1,56 @@
+body {
+	font: normal 14pt Arial, sans-serif;
+	background-color: white;
+	color: black;
+}
+
+.content {
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:20px;
+	padding:0px;
+	width:95%;
+	text-align: justify;
+	display:block;
+}
+.content .article {
+	background-color: #ffffff;
+	padding: 10px;
+	border: 1px dashed #999;
+}
+.content .featured {
+	margin-top:5px;
+	background-color: #ddffdd;
+	padding: 10px;
+	border: 1px dashed #999;
+}
+.content .highlight {
+	margin-top:5px;
+	padding:10px;
+	background-color: #ffffdd;
+	border: 1px dashed #999;
+}
+.calname {
+	background-color: #ffffdd;
+	border: 1px dashed #000000;
+	list-style: none;
+	width:100px;
+	text-align:center;
+	padding: 5px;
+	margin: 5px;
+}
+.calbutton {
+	background-color: #ddffdd;
+	border: 1px dashed #000000;
+	text-align:center;
+	font-size: 10pt;
+	width:100px;
+	padding: 5px;
+	
+}
+.codebox {
+	background-color:#ddffdd;
+	width:550px;
+	font-size:8pt;
+	overflow:auto;
+}
