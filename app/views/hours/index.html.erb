@@ -12,32 +12,26 @@
 		<h2 class="title">Today is <%= Time.now.strftime("%B #{Time.now.day.ordinalize}") %></h2>
     	<div class="inner">
 			
-			<p id="scalupdate"></p>			
-			<!-- <div id="samplecal" class="googleblue"></div> -->
+			<% @date = Date.today %>
 			
-			<% (Date.today.beginning_of_month..Date.today.end_of_month).each do |d| %>
+			<%= link_to @date.last_month.strftime('%B'), url_for (:overwrite_params => { :date => @date.last_month.strftime("%Y-%B")}) %>
+			<%= link_to "today", url_for (:overwrite_params => { :date => Date.today.strftime("%Y-%B")}) %>
+			<%= link_to @date.next_month.strftime('%B'), url_for (:overwrite_params => { :date => @date.next_month.strftime("%Y-%B")}) %>
+			
+			<% calendar(:year => Date.today.year, :month => Date.today.month) do |d| %>
 				<div class="day">
 					<%= link_to_remote "#{d.day}", :url => { :action => "show", :date => d } %>
 				</div>
 			<% end %>
-
+			
 			<div class="clear"></div>
+
 			<h2>Activities for this day</h2>
 			
 			<div id="activities">
 			</div>
 			
 			<div class="clear"></div>			
-			
-			<script>
-			
-				options = Object.extend({
-					titleformat: 'mmmm yyyy',
-	        		updateformat: 'dd.mm.yyyy'
-				});
-				// var samplecal = new scal('samplecal', 'scalupdate', options);
-			
-			</script>
 			
     	</div>
 	</div>
