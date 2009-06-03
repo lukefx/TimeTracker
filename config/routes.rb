@@ -1,5 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
 
+	map.resources :calendars
 	map.resources :activities
 	map.resources :users
 

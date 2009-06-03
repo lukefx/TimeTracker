@@ -1,13 +1,19 @@
+#calendar {
+	float: left;
+}
+
 .day {
 	width: 30px;
 	float: left;
-	margin: 2px;
-	border: solid 1px black;
+	border: solid 1px WhiteSmoke;
+	background-color: WhiteSmoke;
 	padding: 5px;
 }
 
+.today {
+	background-color: LightYellow;
+}
+
 #activities {
-	
 	margin: 0px 0px 0px 25px;
-	
 }

@@ -1,5 +1,5 @@
 development:
-  adapter: sqlite3
+  adapter: jdbcsqlite3
   database: db/development.sqlite3
   pool: 5
   timeout: 5000

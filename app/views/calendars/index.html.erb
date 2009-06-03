@@ -1,0 +1,27 @@
+<% title "My Time" %>
+
+<div class="block" id="block-tables">
+	<div class="secondary-navigation">
+    	<ul>
+			<%= render :partial => 'submenu' %>
+    	</ul>
+    	<div class="clear"></div>
+  	</div>
+	<div class="content">
+		<h2 class="title">Today is <%= Time.now.strftime("%B #{Time.now.day.ordinalize}") %></h2>
+    	<div class="inner">
+
+				<%= render :partial => "calendar" -%>
+				
+				<div class="clear"></div>
+
+				<h2>Activities for this day</h2>
+
+				<div id="activities">
+				</div>
+
+				<div class="clear"></div>
+
+    	</div>
+	</div>
+</div>

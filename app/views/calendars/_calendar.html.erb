@@ -1,0 +1,11 @@
+<div id="calendar">
+	<%= link_to_remote @date.last_month.strftime('%B'), :url => { :action => "show", :date => @date.last_month.strftime("%Y-%B") } -%>
+	<%= link_to_remote "Today", :url => { :action => "show", :date => Date.today } -%>
+	<%= link_to_remote @date.next_month.strftime('%B'), :url => { :action => "show", :date => @date.next_month.strftime("%Y-%B") } -%>
+
+	<% calendar(:year => @date.year, :month => @date.month) do |d| %>
+		<div class="day <%= today_class(d) -%>">
+			<%= link_to_remote "#{d.day}", :url => { :controller => "hours", :action => "show", :date => d } %>
+		</div>
+	<% end %>
+</div>

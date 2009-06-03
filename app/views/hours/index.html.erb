@@ -11,19 +11,16 @@
 	<div class="content">
 		<h2 class="title">Today is <%= Time.now.strftime("%B #{Time.now.day.ordinalize}") %></h2>
     	<div class="inner">
-			
-			<% @date = Date.today %>
-			
-			<%= link_to @date.last_month.strftime('%B'), url_for (:overwrite_params => { :date => @date.last_month.strftime("%Y-%B")}) %>
-			<%= link_to "today", url_for (:overwrite_params => { :date => Date.today.strftime("%Y-%B")}) %>
+
+			<%= link_to_remote @date.last_month.strftime('%B'), :update => "calendar", :url => { :action => "index", :date => @date.last_month.strftime("%Y-%B") } -%>
+			<%# = link_to @date.last_month.strftime('%B'), url_for (:overwrite_params => { :date => @date.last_month.strftime("%Y-%B")}) %>
+			<%= link_to "Today", url_for (:overwrite_params => { :date => Date.today}) %>
 			<%= link_to @date.next_month.strftime('%B'), url_for (:overwrite_params => { :date => @date.next_month.strftime("%Y-%B")}) %>
-			
-			<% calendar(:year => Date.today.year, :month => Date.today.month) do |d| %>
-				<div class="day">
-					<%= link_to_remote "#{d.day}", :url => { :action => "show", :date => d } %>
-				</div>
-			<% end %>
-			
+
+			<div id="calendar">
+				<%= render :partial => "calendar" -%>
+			</div>
+
 			<div class="clear"></div>
 
 			<h2>Activities for this day</h2>
