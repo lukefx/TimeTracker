@@ -1,5 +1,7 @@
 class CalendarsController < ApplicationController
 
+	before_filter :require_user
+
 	def index
 
 		@date = session[:date] || Date.today
@@ -18,7 +20,7 @@ class CalendarsController < ApplicationController
 		respond_to do |format|
       format.html # index.html.erb
       format.js
-    end		
+    end
 	end
 
 end

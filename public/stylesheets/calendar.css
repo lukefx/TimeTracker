@@ -1,13 +1,17 @@
 #calendar {
 	float: left;
+	color: #CCCCCC;
 }
 
 .day {
-	width: 30px;
 	float: left;
-	border: solid 1px WhiteSmoke;
-	background-color: WhiteSmoke;
-	padding: 5px;
+	padding: 3px;
+	width: 76px;
+	height: 36px;
+	color:#CCCCCC;
+	background:#F0F0F0 none repeat scroll 0 0;
+	font-size:9px;
+	border: 1px solid #CCCCCC;
 }
 
 .today {

@@ -1,5 +1,7 @@
 <ul>
 <% for hour in @hours %>
-	<li><%= hour.activity.name %> <%= hour.activity.tags %></li>
+	<li>
+		<%=h hour.activity.name %> <small>(<%= hour.day_formatted -%>)</small> <%= hour.activity.tags %>
+	</li>
 <% end %>
 </ul>

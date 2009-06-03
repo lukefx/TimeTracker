@@ -3,7 +3,7 @@
 <% end %>
 
 <% content_for :menu do %>
-	<li class="first active"><%= link_to 'My Time', hours_path %></li>
+	<li class="first active"><%= link_to 'Calendar', calendars_path %></li>
 	<li><%= link_to 'Activities', activities_path %></li>
 <% end %>
 
@@ -18,10 +18,16 @@
 
 <% content_for :sidebar do %>
 	<div class="block">
-	    <h3>Gestione progetti</h3>
-	    <div class="content">
-	        <p>I progetti possono essere modificati solo da un amministratore del sistema.</p>
-	    </div>
+		<h3>Activities</h3>
+		<div class="content">
+			<p>List of activities</p>
+				<ul id="draggable">
+					<% Activity.all.each do |a| %>
+						<li id="<%= dom_id(a) -%>"><%= a.name -%></li>
+						<%= draggable_element(dom_id(a), :revert => true) -%>
+					<% end %>
+				</ul>
+		</div>
 	</div>
 	<div class="block notice">
 	    <h4>Notice Title</h4>

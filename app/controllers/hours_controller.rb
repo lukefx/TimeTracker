@@ -31,4 +31,14 @@ class HoursController < ApplicationController
     end
   end
 
+	def add
+
+		@element = params[:id]
+
+		respond_to do |format|
+      format.html # add.html.erb
+      format.js
+    end
+	end
+
 end
