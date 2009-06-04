@@ -1,7 +1,7 @@
 class ActivitiesController < ApplicationController
 
-	before_filter :require_user
-	
+	before_filter :require_user		
+
   # GET /activities
   # GET /activities.xml
   def index

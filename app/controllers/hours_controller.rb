@@ -1,17 +1,11 @@
 class HoursController < ApplicationController
 
-	before_filter :require_user
+	before_filter :require_user, :set_user
 
 	def index
 
 		if params[:date]
 			session[:date] = Date.parse(params[:date])
-		end
-
-		if session[:date].nil?
-			@date = Date.today
-		else
-			@date = session[:date]
 		end
 
 		respond_to do |format|
@@ -22,8 +16,10 @@ class HoursController < ApplicationController
 
 	def show
 
-	  @hours = Hour.find_by_day(params[:date]).to_a
-		
+		@date = Date.parse(params[:date])
+		session[:date] = @date
+		@hours = Hour.find(:all, :conditions => ["user_id=? and day=?", @user.id, @date])
+
     respond_to do |format|
       format.html # show.html.erb
       format.js
@@ -31,14 +27,28 @@ class HoursController < ApplicationController
     end
   end
 
-	def add
+  def create
 
-		@element = params[:id]
+		@hour = Hour.new(params[:hour])
+
+    if @hour.save
+      flash[:notice] = "Hour successfully logged."
+    else
+      flash[:notice] = "Error on request"
+		end
 
 		respond_to do |format|
-      format.html # add.html.erb
-      format.js
+    	format.html { redirect_to hours_path }
+			format.js
     end
+
+  end
+
+	private
+
+	def set_user
+		@user = current_user || User.find(session[:user_id])
 	end
+
 
 end

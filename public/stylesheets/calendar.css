@@ -3,6 +3,11 @@
 	color: #CCCCCC;
 }
 
+#calendar ul {
+	list-style: none;
+	padding: 2px 0px 0px 0px;
+}
+
 .day {
 	float: left;
 	padding: 3px;
@@ -16,6 +21,10 @@
 
 .today {
 	background-color: LightYellow;
+}
+
+.selected {
+	background-color: #FCC;
 }
 
 #activities {

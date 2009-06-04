@@ -1,7 +1,17 @@
+<% form_remote_for :hour, Hour.new, :url => { :controller => "hours", :action => "create" }, :html => {:class => "hours_form"} do |f| -%>
+	<%= f.text_field :duration -%>
+	<%= f.select(:activity_id, Activity.all.collect { |c| [ c.name, c.id ] } ) -%>
+	<%= f.hidden_field :user_id, :value => current_user.id -%>
+	<%= f.hidden_field :day, :value => @date -%>
+	<%= f.hidden_field :start_time, :value => Time.now -%>
+	<%= f.hidden_field :stop_time, :value => Time.now -%>
+	<%= submit_tag "Create" -%>
+<% end %>
+
 <ul>
 <% for hour in @hours %>
-	<li>
-		<%=h hour.activity.name %> <small>(<%= hour.day_formatted -%>)</small> <%= hour.activity.tags %>
-	</li>
+  <li>
+    <%=h hour.activity.name %> <small>(<%= hour.day_formatted -%>)</small> <%= hour.activity.tags %>
+  </li>
 <% end %>
 </ul>

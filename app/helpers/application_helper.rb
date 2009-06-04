@@ -1,6 +1,10 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
 
+	def date_id(d)
+		d.strftime("%d_%m_%Y")
+	end
+
 	def html_list(type, elements, options = {})
 		if elements.empty?
 			""

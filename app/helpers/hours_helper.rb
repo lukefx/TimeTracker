@@ -6,4 +6,11 @@ module HoursHelper
 		end
 	end
 
+	def selected_class(d)
+		if d == session[:date]
+			return "selected"
+		end
+	end
+
+
 end

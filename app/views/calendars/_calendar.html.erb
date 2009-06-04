@@ -1,13 +1,18 @@
 <div id="calendar">
+
 	<%= link_to_remote @date.last_month.strftime('%B'), :url => { :action => "show", :date => @date.last_month.strftime("%Y-%B") } -%>
 	<%= link_to_remote "Today", :url => { :action => "show", :date => Date.today } -%>
 	<%= link_to_remote @date.next_month.strftime('%B'), :url => { :action => "show", :date => @date.next_month.strftime("%Y-%B") } -%>
 	<div class="clear"></div>
+
 	<% calendar(:year => @date.year, :month => @date.month) do |d| %>
-		<div id="<%= dom_id(d) -%>" class="day <%= today_class(d) -%>">
-			<%= drop_receiving_element(dom_id(d), :url => { :controller => "Hours", :action => "add" }) -%>
+		<div id="<%= date_id(d) -%>" class="day <%= today_class(d) -%> <%= selected_class(d) -%>">
+
+			<%= drop_receiving_element(date_id(d), :url => { :controller => "Hours", :action => "create", :date => d }) -%>
 			<%= link_to_remote "#{d.day}", :url => { :controller => "hours", :action => "show", :date => d } -%>
-			<%= ul Hour.find_by_day(d).to_a.map(&:duration) -%>
+
+			<%= ul Array(Hour.find_by_day(d)).map(&:duration) -%>
+
 		</div>
 	<% end %>
 </div>

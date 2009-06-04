@@ -4,4 +4,6 @@ tmp/**/*
 doc/api
 doc/app
 db/*.sqlite3
-.idea
+.idea/*
+.project
+.loadpath

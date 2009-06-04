@@ -1,0 +1,2 @@
+page.replace_html :notice, flash[:notice]
+page.insert_html :bottom, date_id(@hour.day), "<li>#{@hour.duration}</li>"

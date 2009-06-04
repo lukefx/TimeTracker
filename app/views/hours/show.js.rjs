@@ -1,1 +1,5 @@
+page.select("#calendar .selected").each do |element|
+  element.removeClassName "selected"
+end
 page.replace_html 'activities', :partial => 'show'
+page[date_id(@date)].addClassName("selected")

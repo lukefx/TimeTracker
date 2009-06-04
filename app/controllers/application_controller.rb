@@ -11,8 +11,8 @@ class ApplicationController < ActionController::Base
 
 	helper_method :current_user 
 
-  private
-
+	protected
+	
 	def require_user
 		unless current_user
 			redirect_to login_path

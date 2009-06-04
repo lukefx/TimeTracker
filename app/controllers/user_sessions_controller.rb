@@ -5,9 +5,10 @@ class UserSessionsController < ApplicationController
 	end
 
 	def create
-	  @user_session = UserSession.new(params[:user_session])  
-	  if @user_session.save  
+	  @user_session = UserSession.new(params[:user_session])
+	  if @user_session.save
 	    flash[:notice] = "Successfully logged in."
+			session[:user_id] = @user_session.id
 	    redirect_to root_url
 	  else
 	    render :action => 'new'  
