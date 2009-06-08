@@ -11,7 +11,7 @@
 			<%= drop_receiving_element(date_id(d), :url => { :controller => "Hours", :action => "create", :date => d }) -%>
 			<%= link_to_remote "#{d.day}", :url => { :controller => "hours", :action => "show", :date => d } -%>
 
-			<%= ul Array(Hour.find_by_day(d)).map(&:duration) -%>
+			<%= ul Array(Hour.hours_of_day(current_user.id, d)).map(&:duration) -%>
 
 		</div>
 	<% end %>

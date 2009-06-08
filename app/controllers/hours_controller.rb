@@ -16,8 +16,7 @@ class HoursController < ApplicationController
 
 	def show
 
-		@date = Date.parse(params[:date])
-		session[:date] = @date
+		@date = session[:date] = Date.parse(params[:date])
 		@hours = Hour.find(:all, :conditions => ["user_id=? and day=?", @user.id, @date])
 
     respond_to do |format|
